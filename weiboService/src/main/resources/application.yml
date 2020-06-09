@@ -1,0 +1,33 @@
+server:
+  port: 1237
+spring:
+  application:
+    name: weiboService
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.27.243.108:3306/weibo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:E:/Images/
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:1234/eureka/
+  main:
+    allow-bean-definition-overriding: true
+
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      ebook-interfaces: fileService
+        connectTimeout: 5000
+          readTimeout: 5000
+
+
