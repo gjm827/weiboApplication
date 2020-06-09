@@ -1,0 +1,29 @@
+server:
+  port: 1236
+spring:
+  application:
+    name: loginService
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.27.243.108:3306/weibo?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
+eureka:
+ client:
+  service-url:
+    defaultZone: http://eureka-server:1234/eureka/
+ main:
+   allow-bean-definition-overriding: true
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      ebook-interfaces: fileService
+        connectTimeout: 30000
+          readTimeout: 30000
+ribbon:
+  eureka:
+    enabled: true
