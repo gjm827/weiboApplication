@@ -1,0 +1,24 @@
+upload-path: /META-INF/resources/
+server:
+  port: 1239
+spring:
+  application:
+    name: fileService
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${upload_path}
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:1234/eureka/
+  main:
+    allow-bean-definition-overriding: true
+fdfs:
+  so-timeout: 30000
+  connect-timeout: 30000
+  tracker-list[0]: 120.27.243.108:22122
+
+
+
+
