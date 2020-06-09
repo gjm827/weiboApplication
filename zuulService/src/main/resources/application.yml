@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: zuulService
+server:
+  port: 1240
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:1234/eureka/
+zuul:
+  routes:
+    weibo:
+      path: /weiboService/**
+      serviceId: weiboService
+    user:
+      path: /userService/**
+      serviceId: userService
+    login:
+      path: /loginService/**
+      serviceId: loginService
+
+
